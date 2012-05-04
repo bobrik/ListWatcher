@@ -7,6 +7,9 @@
         pidFile     = path.join(process.cwd(), "pid", "listwatcher.pid"),
         configFile  = path.join(process.cwd(), "config.json");
 
+    // hello there, php^Wnodejs hacks
+    require("https").globalAgent.maxSockets = 50000;
+
     path.exists(configFile, function(exists) {
         if (!exists) {
             console.log("config.json is missing!");
